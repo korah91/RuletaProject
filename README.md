@@ -1,15 +1,20 @@
 # RuletaProject
 Projecto del juego de la Ruleta de Programación Modular hecho en Java
+
 Paso 1: crear una cuenta gitHub
 Entrar en https://github.com/ y pulsar SignUp. El encargado del GitHub del grupo generará un
 repositorio en su Github para poder compartirlo posteriormente.
 Paso 2: crear un nuevo repositorio
 Por ejemplo “Proyecto”. Después se pasará a compartirlo. ¿Cómo?
+
 • Paso 2.1: Ir a la configuración de GitHub (para llegar a la configuración hacer clic sobre el
 icono que representa al usuario y que se encuentra en la pantalla en la parte superior derecha).
+
 • Paso 2.2: Al hacer clic en la parte izquierda veréis una lista en la que se encuentra la palabra
 “Repositorios”
+
 • Paso 2.3: Seleccionar el repositorio “Proyecto” (el que queremos compartir)
+
 • Paso 2.4: Añadir colaboradores (para hacerlo simplemente introduciréis el email que vuestros
 compañeros han empleado para generar sus cuentas de GitHub). Si lo hacéis de esta forma,
 todos los colaboradores podrán añadir sus aportaciones (bajar fetch y subir cambios commintpush).
