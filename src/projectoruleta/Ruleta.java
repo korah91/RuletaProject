@@ -25,15 +25,15 @@ public class Ruleta {
 		String entradaTeclado2;
 		Scanner entradaEscaner = new Scanner(System.in);
 		while (!salir) {
-			System.out.print("Introduce saldo a la ruleta!");
+			System.out.print("Introduce saldo a la ruleta!, si no quieres introducir un nuevo saldo introduce un 0");
 			entradaTeclado = entradaEscaner.nextLine();
 			double cant = Double.parseDouble(entradaTeclado);
-			if(cant > 0) {
-				this.anadirSaldoRuleta(cant);
+			if(cant > 0 && cant ) {
+				this.jugador.anadirSaldoRuleta(cant);
 				salir = true;
 			}
-			else {
-				System.out.println("Introduce el saldo correctamente, mayor que 0");
+			else if (cant < 0){
+				System.out.println("Introduce el saldo correctamente, mayor o igual que 0");
 			}
 		}
 		salir = false;
@@ -47,12 +47,13 @@ public class Ruleta {
 				System.out.print("Introduce la cantidad de apuesta");
 				entradaTeclado = entradaEscaner.nextLine();
 				double cant = Double.parseDouble(entradaTeclado);
+				this.saldo = this.saldo - cant;
 				if(cant > 0 && cant <= this.saldo) { //Apuesta correcta
 					boolean correcto = false;
 					while (!correcto) {
 						System.out.print("Introduce el tipo de apuesta--> familia, color, mitad, par, docena o numero");
 						entradaTeclado = entradaEscaner.nextLine();
-						if(entradaTeclado != "familia" || entradaTeclado != "color" || entradaTeclado != "mitad" || entradaTeclado != "par" || entradaTeclado != "docena" || entradaTeclado != "numero") {
+						if(!entradaTeclado.equalsIgnoreCase("familia") || !entradaTeclado.equalsIgnoreCase("color") || !entradaTeclado.equalsIgnoreCase("mitad") || !entradaTeclado.equalsIgnoreCase("par") || !entradaTeclado.equalsIgnoreCase("docena") || !entradaTeclado.equalsIgnoreCase("numero")) {
 							System.out.println("Apuesa incorrecta, introducelo de nuevo");
 						}
 						else {
@@ -63,32 +64,32 @@ public class Ruleta {
 					while(!correcto) { 
 						System.out.print("Introduce la apuesta--> huerfanos, par, rojo, 4...");
 						entradaTeclado2 = entradaEscaner.nextLine();
-						if (entradaTeclado == "familia" && (entradaTeclado2 != "huefanos" || entradaTeclado2 != "tercios" || entradaTeclado2 != "vecinos")) {
-							System.out.println("Apuesta incorrecta, intducelo de nuevo");
+						if (entradaTeclado.equalsIgnoreCase("familia") && (!entradaTeclado2.equalsIgnoreCase("huerfanos")|| !entradaTeclado2.equalsIgnoreCase("tercios") || entradaTeclado2.equalsIgnoreCase("vecinos"))) {
+							System.out.println("Apuesta incorrecta, introducelo de nuevo");
 						}
-						else if (entradaTeclado == "color" && (entradaTeclado2 != "rojo" || entradaTeclado2 != "negro")) {
-							System.out.println("Apuesta incorrecta, intducelo de nuevo");
+						else if (entradaTeclado.equalsIgnoreCase("color") && (!entradaTeclado2.equalsIgnoreCase("rojo") || !entradaTeclado2.equalsIgnoreCase("negro"))) {
+							System.out.println("Apuesta incorrecta, introducelo de nuevo");
 						}
-						else if (entradaTeclado == "mitad" && (entradaTeclado2 != "primera" || entradaTeclado2 != "segunda")) {
-							System.out.println("Apuesta incorrecta, intducelo de nuevo");
+						else if (entradaTeclado.equalsIgnoreCase("mitad") && (!entradaTeclado2.equalsIgnoreCase("primera") || !entradaTeclado2.equalsIgnoreCase("segunda"))) {
+							System.out.println("Apuesta incorrecta, introducelo de nuevo");
 						}
-						else if (entradaTeclado == "par" && (entradaTeclado2 != "par" || entradaTeclado2 != "impar")) {
-							System.out.println("Apuesta incorrecta, intducelo de nuevo");
+						else if (entradaTeclado.equalsIgnoreCase("par") && (!entradaTeclado2.equalsIgnoreCase("par") || !entradaTeclado2.equalsIgnoreCase("impar"))) {
+							System.out.println("Apuesta incorrecta, introducelo de nuevo");
 						}
-						else if (entradaTeclado == "docena" && (entradaTeclado2 != "primera" || entradaTeclado2 != "segunda")) {
-							System.out.println("Apuesta incorrecta, intducelo de nuevo");
+						else if (entradaTeclado.equalsIgnoreCase("docena") && (!entradaTeclado2.equalsIgnoreCase("primera") || !entradaTeclado2.equalsIgnoreCase("segunda"))) {
+							System.out.println("Apuesta incorrecta, introducelo de nuevo");
 						}
-						else if (entradaTeclado == "numero") {
+						else if (entradaTeclado.equalsIgnoreCase("numero")) {
 							int num = Integer.parseInt(entradaTeclado2);
 							if(num < 0 || num > 36) {
-								System.out.println("Apuesta incorrecta, intducelo de nuevo");
+								System.out.println("Apuesta incorrecta, introducelo de nuevo");
 							}
 						}
 						else {
 							correcto = true;
 						}
 					}
-					apostarDinero(entradaTeclado, entradaTeclado2 );
+					apostarDinero(entradaTeclado, entradaTeclado2);
 				}
 					
 				else if(cant > this.saldo) {
@@ -100,28 +101,45 @@ public class Ruleta {
 			}
 			Numero num = this.listaN.lanzarBola();
 			
+			this.actualizarSaldoRuleta(num);
+			
+			boolean aux = false;
+			while(!aux) {
+				System.out.print("Si quieres retirar dinero escribe 1, si no introduce un 0");
+				entradaTeclado = entradaEscaner.nextLine();
+				if(entradaTeclado.equalsIgnoreCase("1")) {
+					salir = true;
+					aux = true;
+				}
+				else if(!entradaTeclado.equalsIgnoreCase("0")) {
+					System.out.println("Comando incorrecto, introducelo correctamente");
+				}
+				else {
+					aux = true;
+				}
+			}
 			
 		}
 		
 	}
 	
 	public void apostarDinero(String pTipoApuesta, String pApuesta) {
-		if(pTipoApuesta == "familia") {
+		if(pTipoApuesta.equalsIgnoreCase("familia")) {
 			this.listaA.anadirApuestaFamilia(pApuesta);
 		}
-		else if(pTipoApuesta == "color") {
+		else if(pTipoApuesta.equalsIgnoreCase("color")) {
 			this.listaA.annadirApuestaColor(pApuesta);
 		}
-		else if(pTipoApuesta ==  "mitad") {
+		else if(pTipoApuesta.equalsIgnoreCase("mitad")) {
 			this.listaA.anadirApuestaMitad(pApuesta);
 		}
-		else if(pTipoApuesta == "par") {
+		else if(pTipoApuesta.equalsIgnoreCase("par")) {
 			this.listaA.anadirApuestaMitad(pApuesta);
 		}
-		else if(pTipoApuesta == "docena") {
+		else if(pTipoApuesta.equalsIgnoreCase("docena")) {
 			this.listaA.anadirApuestaDocena(pApuesta);
 		}
-		else if(pTipoApuesta == "numero") {
+		else if(pTipoApuesta.equalsIgnoreCase("numero")) {
 			this.listaA.annadirApuestaNumero(pApuesta);
 		}
 		
@@ -136,9 +154,9 @@ public class Ruleta {
 		this.saldo = this.saldo + pSaldo;
 	}
 	
-	public void actualizarSaldoRuleta() {
-		
-		
+	public void actualizarSaldoRuleta(Numero pNum) {
+		double premio = this.listaA.getPremio(num);
+		this.saldo = this.saldo + premio;
 	}
 	
 
