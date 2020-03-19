@@ -42,19 +42,25 @@ public class Jugador {
     		System.out.println("Ingrese la cantidad a ingresar");
     	
 		String entrada = scanner.nextLine();
-		if(entrada.equalsIgnoreCase("salir")){
-			salir = true;
-		}
-		else {
+		
 		double pCant = Double.parseDouble(entrada);
-		if (pCant > this.saldoActual) {
-			System.out.println("No tienes saldo suficiente como para añadir esa cantidad.");
-		}
-		else {
-			this.saldoActual = this.saldoActual - pCant;
-			ruleta.anadirSaldoRuleta(pCant);
+		
+		if(pCant == 0)
+		{
 			salir = true;
 		}
+		else {
+		
+			if (pCant > this.saldoActual) 
+			{
+				System.out.println("No tienes saldo suficiente como para añadir esa cantidad.");
+			}
+			else
+			{
+				this.saldoActual = this.saldoActual - pCant;
+				ruleta.anadirSaldoRuleta(pCant);
+				salir = true;
+			}
 		}
     	}
 	}
