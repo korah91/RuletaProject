@@ -18,15 +18,21 @@ icono que representa al usuario y que se encuentra en la pantalla en la parte su
 • Paso 2.4: Añadir colaboradores (para hacerlo simplemente introduciréis el email que vuestros
 compañeros han empleado para generar sus cuentas de GitHub). Si lo hacéis de esta forma,
 todos los colaboradores podrán añadir sus aportaciones (bajar fetch y subir cambios commintpush).
+
 Paso 3: abrir eclipse
+
 Paso 4: activar la vista Git Repositories
 En el menú superior: Window > Show view > Other en la lista que aparece seleccionar Git Repositories
+
 Paso 5: abrir o generar un proyecto java (que podéis llamar “proyecto”)
+
 Paso 6: compartir el proyecto
 Sobre el proyecto java recién generado, con el botón derecho Project > Team > Share > add to git repo
+
 Paso 7: hacer commit/push
 Con el botón derecho Team > commit y arrasatrar del cuadro Unstaged al cuadro Staged y añadir un
 mensaje describiendo el cambio que se haya realizado. Finalmente pulsar el botón commit and push
+
 Paso 8: cada vez que se haga un cambio se repetirá el paso 7 (commit y push)
 Más información en los siguientes videos:
 https://www.youtube.com/watch?v=cdsMIX9gB94 [Ubilife Lab (2016) “Git tutorial 1: creating github
