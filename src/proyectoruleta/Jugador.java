@@ -33,7 +33,7 @@ public class Jugador {
 	}
 	
 	public void anadirSaldoRuleta () {
-		Ruleta ruleta = Ruleta.getMiRuleta;
+		Ruleta ruleta = Ruleta.getMiRuleta();
 		boolean salir = false;
 		Scanner scanner = new Scanner(System.in);
 

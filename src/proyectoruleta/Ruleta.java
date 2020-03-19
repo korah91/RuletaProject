@@ -13,7 +13,7 @@ public class Ruleta {
 		this.listaN = new ListaNumeros();
 	}
 	
-	public static synchronized Ruleta getRuleta() {
+	public static synchronized Ruleta getMiRuleta() {
 		if (Ruleta.miRuleta == null) {
 			Ruleta.miRuleta = new Ruleta();
 		}
