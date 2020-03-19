@@ -13,7 +13,7 @@ public class Ruleta {
 		this.listaN = new ListaNumeros();
 	}
 	
-	public static synchronized Ruleta getMiRuleta() {
+	public static synchronized Ruleta getRuleta() {
 		if (Ruleta.miRuleta == null) {
 			Ruleta.miRuleta = new Ruleta();
 		}
@@ -28,9 +28,14 @@ public class Ruleta {
 			System.out.print("Introduce saldo a la ruleta!, si no quieres introducir un nuevo saldo introduce un 0");
 			entradaTeclado = entradaEscaner.nextLine();
 			double cant = Double.parseDouble(entradaTeclado);
-			if(cant > 0 && cant ) {
-				this.jugador.anadirSaldoRuleta(cant);
-				salir = true;
+			if(cant > 0) {
+				boolean operacion = this.jugador.anadirSaldoRuleta(cant);
+				if(operacion = false) {
+					System.out.println("No tienes suficiente saldo en tu monedero");
+				}
+				else {
+					salir = true;
+				}
 			}
 			else if (cant < 0){
 				System.out.println("Introduce el saldo correctamente, mayor o igual que 0");

@@ -1,7 +1,5 @@
 package proyectoruleta;
 
-import java.util.Scanner;
-
 public class Jugador {
 
 	private double saldoInicial;
@@ -32,38 +30,13 @@ public class Jugador {
 		return this.saldoInicial;
 	}
 	
-	public void anadirSaldoRuleta () {
-		Ruleta ruleta = Ruleta.getMiRuleta();
-		boolean salir = false;
-		Scanner scanner = new Scanner(System.in);
-
-    	while(salir == false){
-    		System.out.println("Usted tiene " + this.saldoActual + " € en el monedero");
-    		System.out.println("Ingrese la cantidad a ingresar");
-    	
-		String entrada = scanner.nextLine();
-		
-		double pCant = Double.parseDouble(entrada);
-		
-		if(pCant == 0)
-		{
-			salir = true;
+	public boolean anadirSaldoRuleta (double pCant) {
+		boolean resp = false;
+		if (this.saldoActual >= pCant) {
+			resp = true;
+			this.saldoActual = this.saldoActual - pCant;
 		}
-		else {
-		
-			if (pCant > this.saldoActual) 
-			{
-				System.out.println("No tienes saldo suficiente como para añadir esa cantidad.");
-			}
-			else
-			{
-				this.saldoActual = this.saldoActual - pCant;
-				ruleta.anadirSaldoRuleta(pCant);
-				salir = true;
-			}
-		}
-    	}
+		return resp;
 	}
 	
 }
-
