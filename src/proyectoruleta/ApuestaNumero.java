@@ -15,7 +15,6 @@ public class ApuestaNumero extends Apuesta {
 		if(Integer.toString(pNumero.getNumero()).equalsIgnoreCase(numero)) //Si el numero es el premiado
 		{
 			premio = this.cantidad*multiplicador;
-
 		}
 		
 		return premio;
