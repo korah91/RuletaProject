@@ -28,10 +28,13 @@ public class ApuestaFamilia extends Apuesta {
 			this.multiplicador = 1.19;
 		}
 	}
-	public double getPremio(Numero pNumero) {
+	public double getPremio(Numero pNumero) { //Devuelve lo apostado MAS el premio
 		double premio = 0;
-			
-		premio = this.cantidad*multiplicador;
+		if(pNumero.getFamilia().equalsIgnoreCase(this.familia))	
+		{
+			premio = this.cantidad*multiplicador;
+		}
+		
 		
 		return premio;
 	}

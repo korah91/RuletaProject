@@ -9,5 +9,5 @@ public abstract class Apuesta {
 		this.cantidad = pCantidad;
 	}
 	
-	public abstract double getPremio();
+	public abstract double getPremio(Numero pNumero);
 }

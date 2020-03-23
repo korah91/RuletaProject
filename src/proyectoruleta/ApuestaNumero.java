@@ -11,8 +11,12 @@ public class ApuestaNumero extends Apuesta {
 	}
 	public double getPremio(Numero pNumero) { //Devuelve lo apostado MAS el premio
 		double premio = 0;
-			
-		premio = this.cantidad*multiplicador;
+		
+		if(Integer.toString(pNumero.getNumero()).equalsIgnoreCase(numero)) //Si el numero es el premiado
+		{
+			premio = this.cantidad*multiplicador;
+
+		}
 		
 		return premio;
 	}
