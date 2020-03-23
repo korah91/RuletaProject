@@ -36,20 +36,16 @@ public class ListaApuestas {
     }
     
     public double getPremio(Numero pNum) {
-    	double premio = 0;
+    	double premioTotal = 0;
     	Iterator<Apuesta> itr = this.getIterador();
     	Apuesta apuesta = null;
     	
     	while(itr.hasNext())
     	{
     		apuesta = itr.next();
-    		
-    		if()
+    		premioTotal = premioTotal + apuesta.getPremio(pNum);
     	}
-    	
-    	
-    	
-    	return premio;
+    	return premioTotal;
     }
 
     
