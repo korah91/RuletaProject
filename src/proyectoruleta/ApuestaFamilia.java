@@ -15,15 +15,15 @@ public class ApuestaFamilia extends Apuesta {
 		super(pCantidad);
 		this.familia = pFamilia;
 		
-		if(pFamilia.equalsIgnoreCase("huerfano")) 
+		if(pFamilia.equalsIgnoreCase("huerfanos")) 
 		{
 			this.multiplicador = 1.28;
 		}
-		if(pFamilia.equalsIgnoreCase("tercio"))
+		if(pFamilia.equalsIgnoreCase("tercios"))
 		{
 			this.multiplicador = 1.24;
 		}
-		if(pFamilia.equalsIgnoreCase("vecino"))
+		if(pFamilia.equalsIgnoreCase("vecinos"))
 		{
 			this.multiplicador = 1.19;
 		}
