@@ -8,28 +8,15 @@ import org.junit.Test;
 
 public class ListaApuestasTest {
 	ListaApuestas lista;
-	Apuesta ap1, ap2, ap3, ap4, ap5, ap6;
 
 	@Before
 	public void setUp() throws Exception {
 		lista = new ListaApuestas();
-		ap1 = new ApuestaColor(100, "negro"); //Apuesta a color negro 100
-		ap2 = new ApuestaDocena(100, "primera docena"); //Apuesta a la primera docena 100
-		ap3 = new ApuestaMitad(100, "segunda mitad"); //Apueseta a la segunda mitad 100
-		ap4 = new ApuestaFamilia(100, "huerfanos"); //Apueseta a familia huerfanos 100
-		ap5 = new ApuestaPar(100, "impar"); //Apuesta a par impar 100
-		ap6 = new ApuestaNumero(100, 10); //Apuesta a el 10 100
 	}
 
 	@After
 	public void tearDown() throws Exception {
-		lista.resetear();;
-		ap1 = null;
-		ap2 = null;
-		ap3 = null;
-		ap4 = null;
-		ap5 = null;
-		ap6 = null;
+		lista.resetear();
 	}
 
 	@Test
