@@ -150,7 +150,7 @@ public class Ruleta {
 	}
 	
 	public void crearNumeros() {
-		this.listaN.crearNumeros();
+		this.listaN.generarNumeros();
 	}
 	
 
