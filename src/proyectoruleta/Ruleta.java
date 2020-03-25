@@ -103,7 +103,7 @@ public class Ruleta {
 				}
 			}
 			Numero num = this.listaN.lanzarBola();
-			this.listaP = listaP.getMiListaPremiados();
+			this.listaP = ListaPremiados.getListaPremiados();
 			this.listaP.annadirNumeroPremiado(num);
 			this.listaP.imprimirTiradas();//tiradas anteriores
 			this.listaP.imprimirCalientesYFrios();//calientes y frios (se imprimira a partir de 5 numeros)
