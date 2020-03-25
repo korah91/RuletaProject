@@ -127,7 +127,7 @@ public class Ruleta {
 			}
 			
 		}
-		
+		Ruleta.miRuleta.retirarDinero();
 	}
 	
 	public void apostarDinero(String pTipoApuesta, String pApuesta, double pCant) {
@@ -138,6 +138,13 @@ public class Ruleta {
 	public void retirarDinero() {
 		this.jugador.actualizarSaldo(this.saldo);
 		this.saldo = 0.0;
+		double dinero = this.jugador.getBeneficio();
+		if (dinero > 0 ) {
+			System.out.println(String.format("Tu beneficio total de las partidas es %4f", dinero));
+		}
+		else {
+			System.out.println(String.format("Has perdido una canatidad total de %4f", dinero));
+		}
 	}
 	
 	public void anadirSaldoRuleta(double pSaldo) {
