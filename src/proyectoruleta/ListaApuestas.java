@@ -21,18 +21,18 @@ public class ListaApuestas {
         else if(pTipo.equalsIgnoreCase("color")){
             this.lista.add(new ApuestaColor(pCantidad, pApuesta));
         } 
-		else if(pTipo.equalsIgnoreCase("docena")) {
-		    this.lista.add(new ApuestaDocena(pCantidad, pApuesta));
-		}
-		else if(pTipo.equalsIgnoreCase("par")){
-		    this.lista.add(new ApuestaPar(pCantidad, pApuesta));
-		}
-		else if(pTipo.equalsIgnoreCase("mitad")) {
-		    this.lista.add(new ApuestaMitad(pCantidad, pApuesta));
-		}
-		else if(pTipo.equalsIgnoreCase("numero")) {
-		    this.lista.add(new ApuestaNumero(pCantidad, pApuesta));
-		}
+	else if(pTipo.equalsIgnoreCase("docena")) {
+	    this.lista.add(new ApuestaDocena(pCantidad, pApuesta));
+	}
+	else if(pTipo.equalsIgnoreCase("par")){
+	    this.lista.add(new ApuestaPar(pCantidad, pApuesta));
+	}
+	else if(pTipo.equalsIgnoreCase("mitad")) {
+	    this.lista.add(new ApuestaMitad(pCantidad, pApuesta));
+	}
+	else if(pTipo.equalsIgnoreCase("numero")) {
+	    this.lista.add(new ApuestaNumero(pCantidad, pApuesta));
+	}
     }
     
     public double getPremio(Numero pNum) {
