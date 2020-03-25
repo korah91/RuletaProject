@@ -7,6 +7,7 @@ public class Ruleta {
 	private ListaNumeros listaN;
 	private Jugador jugador;
 	private ListaApuestas listaA;
+	private ListaPremiados listaP = null;
 	private double saldo = 0.0;
 	
 	private Ruleta() {
@@ -102,11 +103,10 @@ public class Ruleta {
 				}
 			}
 			Numero num = this.listaN.lanzarBola();
-			ListaPremiados listaP = null;
-			listaP = listaP.getMiListaPremiados();
-			listaP.annadirNumeroPremiado(num);
-			listaP.imprimirTiradas();//tiradas anteriores
-			listaP.imprimirCalientesYFrios();//calientes y frios (se imprimira a partir de 5 numeros)
+			this.listaP = listaP.getMiListaPremiados();
+			this.listaP.annadirNumeroPremiado(num);
+			this.listaP.imprimirTiradas();//tiradas anteriores
+			this.listaP.imprimirCalientesYFrios();//calientes y frios (se imprimira a partir de 5 numeros)
 			
 			this.actualizarSaldoRuleta(num);
 			
