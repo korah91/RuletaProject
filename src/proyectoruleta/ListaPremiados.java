@@ -6,12 +6,16 @@ public class ListaPremiados {
 	//atributos
 	
 	private ArrayList<Numero> lista; 
+	private ArrayList<Numero> listaCalientes;
+	private ArrayList<Numero> listaFrios; 
 	private static ListaPremiados miListaPremiados = null; 
 	
 	//Constructoras
 
 	private ListaPremiados() {
-		this.lista = new ArrayList<Numero>(); 
+		this.lista = new ArrayList<Numero>();
+		this.listaCalientes = new ArrayList<Numero>();
+		this.listaFrios = new ArrayList<Numero>(); 
 	}
 	
 	//metodos adicionales
@@ -25,8 +29,16 @@ public class ListaPremiados {
 		return(ListaPremiados.miListaPremiados); 
 	}
 	
-	private Iterator<Numero> getIterador(){
+	private Iterator<Numero> getIteradorLista(){
 		return(lista.iterator());
+	}
+	
+	private Iterator<Numero> getIteradorListaCalientes(){
+		return(listaCalientes.iterator());
+	}
+	
+	private Iterator<Numero> getIteradorListaFrios(){
+		return(listaFrios.iterator());
 	}
 	
 	public void annadirNumeroPremiado(Numero pNumero) {
@@ -34,7 +46,7 @@ public class ListaPremiados {
 	}
 	
 	public void imprimirTiradas() {
-		Iterator<Numero> itr = this.getIterador();
+		Iterator<Numero> itr = this.getIteradorLista();
 		Numero num = null; 
 		System.out.println("Los ultimos numeros premiados han sido : ");	
 		System.out.println(" ");
@@ -56,32 +68,48 @@ public class ListaPremiados {
 
 	
 	public void  imprimirCalientesYFrios() {
-		ArrayList<Numero> listaCalientes = new ArrayList<Numero>();
-		ArrayList<Numero> listaFrios = new ArrayList<Numero>();
-		Iterator<Numero> itrCalientes = listaCalientes.iterator(); 
-		Iterator<Numero> itrFrios = listaFrios.iterator();
+		ArrayList<Integer> listaTemp = new ArrayList<Integer>();
+		Iterator<Numero> itrCalientes = null;
+		Iterator<Numero> itrFrios = null;
+		Iterator<Numero> itr = this.getIteradorLista();
 		Numero numCaliente = null; 
 		Numero numFrios = null;
-		int indice = 0; 
-		int contador = 0;
-		
-		while (indice < this.cuantosNumeros() - 1) {
-			contador = Collections.frequency(this.lista, indice);
-			indice = indice + 1; 
-		}
-		
-		if (contador >= 3 && !listaCalientes.contains(indice)) {
-			listaCalientes.add(this.lista.get(indice));
-		}
-		else {
-			if(!listaFrios.contains(indice)) {
-			listaFrios.add(this.lista.get(indice));
-		
+		Numero primero = null;
+	
+		while(itr.hasNext()) {
+			primero = itr.next();
+			/* Comprobar que el numero no este en nuestro arrayList */
+			if (!listaTemp.contains(primero.getNumero())) {
+				Numero num = new Numero(primero.getColor(), primero.getNumero(), primero.getPar(), primero.getDocena()
+						, primero.getMitad(), primero.getFamilia());
+				int iNumeroVeces = 0;
+				for (int iIndice = 0; iIndice < this.lista.size(); iIndice++) {
+					if (primero.getNumero() == this.lista.get(iIndice).getNumero()) {
+						iNumeroVeces++;
+					}
+				}
+				
+				num.setVecesAparecido(iNumeroVeces);
+				listaTemp.add(num.getNumero());
+				
+				if(iNumeroVeces >= 3) {
+					this.listaCalientes.add(num);
+				}
+				else  {
+					this.listaFrios.add(num);
+				}
 			}
+			
 		}
+		
+		
+
 		
 		System.out.println("Los numeros calientes son : " );
 		System.out.println(" ");
+		
+		itrCalientes = this.getIteradorListaCalientes();
+		itrFrios = this.getIteradorListaFrios();
 		
 		while (itrCalientes.hasNext()) {
 			
@@ -113,9 +141,14 @@ public class ListaPremiados {
 		}
 	}
 	
+	
 	public int cuantosNumeros() {
 		
 		return(lista.size());
+	}
+	
+	public void reset() {
+		lista = new ArrayList<Numero>(); 
 	}
 
 }
