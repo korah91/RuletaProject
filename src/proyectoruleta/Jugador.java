@@ -11,7 +11,7 @@ public class Jugador {
 		this.saldoActual = this.saldoInicial;
 	}
 	
-	public Jugador getMiJugador() {
+	public static synchronized Jugador getMiJugador() {
 		
 		if (Jugador.miJugador == null) {
 			Jugador.miJugador = new Jugador();
