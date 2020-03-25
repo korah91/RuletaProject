@@ -31,7 +31,8 @@ public class ListaApuestas {
 	    this.lista.add(new ApuestaMitad(pCantidad, pApuesta));
 	}
 	else if(pTipo.equalsIgnoreCase("numero")) {
-	    this.lista.add(new ApuestaNumero(pCantidad, pApuesta));
+		int num = Integer.parseInt(pApuesta);
+	    this.lista.add(new ApuestaNumero(pCantidad, num));
 	}
     }
     
@@ -43,9 +44,30 @@ public class ListaApuestas {
     	while(itr.hasNext())
     	{
     		apuesta = itr.next();
-    		premioTotal = premioTotal + apuesta.getPremio(pNum);
+    		if(apuesta instanceof ApuestaColor){
+    			premioTotal = premioTotal + ((ApuestaColor)apuesta).getPremio(pNum);
+    		}
+    		else if(apuesta instanceof ApuestaFamilia) {
+    			premioTotal = premioTotal + ((ApuestaFamilia)apuesta).getPremio(pNum);
+    		}
+    		else if(apuesta instanceof ApuestaDocena) {
+    			premioTotal = premioTotal + ((ApuestaDocena)apuesta).getPremio(pNum);
+    		}
+    		else if(apuesta instanceof ApuestaMitad) {
+    			premioTotal = premioTotal + ((ApuestaMitad)apuesta).getPremio(pNum);
+    		}
+    		else if(apuesta instanceof ApuestaPar) {
+    			premioTotal = premioTotal + ((ApuestaPar)apuesta).getPremio(pNum);
+    		}
+    		else {
+    			premioTotal = premioTotal + ((ApuestaNumero)apuesta).getPremio(pNum);
+    		}
     	}
     	return premioTotal;
+    }
+    
+    public int cantidad() {
+    	return this.lista.size();
     }
 
     
