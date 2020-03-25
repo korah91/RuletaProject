@@ -9,6 +9,7 @@ public class Numero {
 	private String docena; 
 	private String  mitad; 
 	private String familia; 
+	private int vecesAparecido; 
 	
 	//Constructoras
 
@@ -19,7 +20,8 @@ public class Numero {
 		this.par = pPar; 
 		this.docena = pDocena; 
 		this.mitad = pMitad; 
-		this.familia = pFamilia; 
+		this.familia = pFamilia;
+		this.vecesAparecido = 0;
 	}
 	
 	//metodos adicionales
@@ -51,5 +53,13 @@ public class Numero {
 	public String getFamilia() {
 		
 		return(this.familia); 
+	}
+	
+	public int getVecesAparecido() {
+		return(this.vecesAparecido);
+	}
+	
+	public void setVecesAparecido(int pVecesAparecido) {
+		this.vecesAparecido = pVecesAparecido;
 	}
 }
