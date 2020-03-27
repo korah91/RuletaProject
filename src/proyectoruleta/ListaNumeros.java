@@ -133,8 +133,6 @@ public class ListaNumeros {
         return (numeroPremiado);
     }
 	
-	public int cuantosNumeros() {
-		return(lista.size());
-	}
+	
 
 }

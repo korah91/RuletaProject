@@ -69,6 +69,10 @@ public class ListaApuestas {
     public int cantidad() {
     	return this.lista.size();
     }
+    
+    public void reset() {
+    	this.lista.clear();
+    }
 
     
     
