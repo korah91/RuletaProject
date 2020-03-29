@@ -43,7 +43,7 @@ public class ListaPremiadosTest {
 	@After
 	public void tearDown() throws Exception {
 		
-		listaP = null; 
+		listaP.reset(); 
 		
 		numeroRojoPar = null; 
 		numeroNegroImpar = null; 
