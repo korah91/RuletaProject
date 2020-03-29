@@ -47,7 +47,7 @@ public class Ruleta {
 				System.out.println("Tu saldo del monedero actual es" + " " + this.jugador.getSaldoActual());
 				System.out.println(" ");
 				System.out.print("Introduce saldo a la ruleta!, si no quieres introducir un nuevo saldo introduce un 0 --> ");
-				System.out.println(" ");
+				
 				entradaTeclado = entradaEscaner.nextLine();
 				double dinero = Double.parseDouble(entradaTeclado);
 				
@@ -158,7 +158,7 @@ public class Ruleta {
 			
 			while(!aux) {
 				System.out.print("Si quieres retirar dinero escribe 1, si no introduce un 0 --> ");
-				System.out.println(" ");
+				
 				entradaTeclado = entradaEscaner.nextLine();
 				if(entradaTeclado.equalsIgnoreCase("1")) { //Es como que no quiere seguir jugando
 					aux = true;
