@@ -40,7 +40,11 @@ public class JugadorTest {
 
 	@Test
 	public void testAnadirSaldoRuleta() {
-		jugador.anadirSaldoRuleta(500);
+		boolean resp = jugador.anadirSaldoRuleta(500);
+		assertTrue(resp);
+		assertEquals(-500,jugador.getBeneficio(),0.1);
+		resp = jugador.anadirSaldoRuleta(1000000);
+		assertFalse(resp);
 		assertEquals(-500,jugador.getBeneficio(),0.1);
 	}
 
