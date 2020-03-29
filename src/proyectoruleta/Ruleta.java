@@ -61,7 +61,7 @@ public class Ruleta {
 				}
 			}
 				while (!apuestacorrecta) {  //Varias apuestas hasta que mete un 0 en cantidad 
-					System.out.println("Introduce una cantidad y una apuesta, por ejemplo 5, rojo");
+					System.out.println("Introduce una cantidad que deseas apostar");
 					System.out.println("Si no quieres realizar mas apuestas introcude el numero 0 en la cantidad");
 					System.out.print("Introduce la cantidad de apuesta --> ");
 					entradaTeclado = entradaEscaner.nextLine();
