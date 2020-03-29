@@ -40,13 +40,16 @@ public class Ruleta {
 			apuestacorrecta = false;
 			this.crearNumeros();
 			while (!salirdinero) {
+				System.out.println(" ");
 				System.out.print("Introduce saldo a la ruleta!, si no quieres introducir un nuevo saldo introduce un 0 --> ");
+				System.out.println(" ");
 				entradaTeclado = entradaEscaner.nextLine();
 				double dinero = Double.parseDouble(entradaTeclado);
 				if(dinero > 0) {
 					operacion = this.jugador.anadirSaldoRuleta(dinero);
 					if(operacion = false) {
 						System.out.println("No tienes suficiente saldo en tu monedero");
+						System.out.println("No has ganado");
 					}
 					else {
 						salirdinero = true;
@@ -61,13 +64,15 @@ public class Ruleta {
 				}
 			}
 				while (!apuestacorrecta) {  //Varias apuestas hasta que mete un 0 en cantidad 
+					System.out.println("Tu saldo de la ruleta es" + " " + this.saldo);
+					System.out.println(" ");
 					System.out.println("Introduce una cantidad que deseas apostar");
 					System.out.println("Si no quieres realizar mas apuestas introcude el numero 0 en la cantidad");
 					System.out.print("Introduce la cantidad de apuesta --> ");
 					entradaTeclado = entradaEscaner.nextLine();
 					System.out.println(" ");
 					double cant = Double.parseDouble(entradaTeclado);
-					if(cant > 0 && cant <= this.saldo) { //Apuesta correcta
+					if(cant > 0 && cant <= this.saldo) { //Apuesta correcta, no se tiene en cuenta que no meta una cantidad
 						this.saldo = this.saldo - cant;
 						boolean correcto = false;
 						while (!correcto) {
@@ -126,7 +131,7 @@ public class Ruleta {
 				this.listaP.imprimirCalientesYFrios();//calientes y frios (se imprimira a partir de 5 numeros)
 				double premio = this.listaA.getPremio(num);
 				if(premio > 0) {
-					System.out.println("Has ganado" + premio + "euros");
+					System.out.println("Has ganado"+ " " + premio + " " + "euros");
 					System.out.println(" ");
 				}
 				else {
