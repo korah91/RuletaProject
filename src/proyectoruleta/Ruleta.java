@@ -1,6 +1,6 @@
 package proyectoruleta;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Ruleta {
 	private static Ruleta miRuleta = null;
@@ -47,9 +47,9 @@ public class Ruleta {
 				double dinero = Double.parseDouble(entradaTeclado);
 				if(dinero > 0) {
 					operacion = this.jugador.anadirSaldoRuleta(dinero);
-					if(operacion = false) {
+					if(operacion == false) {
 						System.out.println("No tienes suficiente saldo en tu monedero");
-						System.out.println("No has ganado");
+						System.out.println(" ");
 					}
 					else {
 						salirdinero = true;
@@ -58,6 +58,7 @@ public class Ruleta {
 				}
 				else if (dinero < 0){
 					System.out.println("Introduce el saldo correctamente, mayor o igual que 0");
+					System.out.println(" ");
 				}
 				else {
 					salirdinero = true;
@@ -125,10 +126,9 @@ public class Ruleta {
 					}
 				}
 				Numero num = this.listaN.lanzarBola();
-				this.listaP = ListaPremiados.getListaPremiados();
 				this.listaP.annadirNumeroPremiado(num);
 				this.listaP.imprimirTiradas();//tiradas anteriores
-				this.listaP.imprimirCalientes();//calientes 
+				this.listaP.imprimirCalientes();//calientes y frios (se imprimira a partir de 5 numeros)
 				double premio = this.listaA.getPremio(num);
 				if(premio > 0) {
 					System.out.println("Has ganado"+ " " + premio + " " + "euros");
@@ -145,7 +145,7 @@ public class Ruleta {
 					System.out.print("Si quieres retirar dinero escribe 1, si no introduce un 0 --> ");
 					System.out.println(" ");
 					entradaTeclado = entradaEscaner.nextLine();
-					if(entradaTeclado.equalsIgnoreCase("1")) {
+					if(entradaTeclado.equalsIgnoreCase("1")) { //Es como que no quiere seguir jugando
 						aux = true;
 						partida = true;
 						listaA.reset();
@@ -177,7 +177,7 @@ public class Ruleta {
 			System.out.println(" ");
 		}
 		else {
-			System.out.println(String.format("Has perdido una cantidad total de %4f", - dinero));
+			System.out.println(String.format("Has perdido una cantidad total de %4f", -dinero));
 			System.out.println(" ");
 		}
 	}
