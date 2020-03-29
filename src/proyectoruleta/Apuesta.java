@@ -1,7 +1,7 @@
 package proyectoruleta;
 
 public abstract class Apuesta {
-	
+	//Prueba
 	protected double cantidad;
 	protected double multiplicador;
 	
