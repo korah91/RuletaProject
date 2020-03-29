@@ -135,18 +135,19 @@ public class Ruleta {
 				this.listaP.annadirNumeroPremiado(num);
 				this.listaP.imprimirTiradas();//tiradas anteriores
 				this.listaP.imprimirCalientes();//calientes y frios (se imprimira a partir de 5 numeros)
-				double premio = this.listaA.getPremio(num);
-				if(premio > 0) {
-					System.out.println("Has ganado"+ " " + premio + " " + "euros");
+				double ganancia = this.listaA.getPremio(num);
+				if(ganancia > 0) {
+					System.out.println("Has ganado"+ " " + ganancia + " " + "euros");
 					System.out.println(" ");
-					premio = 0;
+					ganancia = 0;
 				}
 				else {
 					System.out.println("No has ganado");
-					premio = 0;
+					ganancia = 0;
 				}
 				
 				this.actualizarSaldoRuleta(num);
+				this.listaA.reset();
 				
 				boolean aux = false;
 				while(!aux) {
