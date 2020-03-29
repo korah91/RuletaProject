@@ -60,11 +60,12 @@ public class Ruleta {
 					salirdinero = true;
 				}
 			}
-				while (!apuestacorrecta) {  //Varias apuestas hasta que mete un 0 en cantidad   
-					System.out.println("Introduce la cantidad que quieres apostar");
+				while (!apuestacorrecta) {  //Varias apuestas hasta que mete un 0 en cantidad 
+					System.out.println("Introduce una cantidad que deseas apostar");
 					System.out.println("Si no quieres realizar mas apuestas introcude el numero 0 en la cantidad");
 					System.out.print("Introduce la cantidad de apuesta --> ");
 					entradaTeclado = entradaEscaner.nextLine();
+					System.out.println(" ");
 					double cant = Double.parseDouble(entradaTeclado);
 					if(cant > 0 && cant <= this.saldo) { //Apuesta correcta
 						this.saldo = this.saldo - cant;
@@ -79,6 +80,7 @@ public class Ruleta {
 							System.out.print("Introduce la apuesta--> huerfanos, par, rojo, 4 , primera docena, segunda mitad... --> ");
 							entradaTeclado = entradaEscaner.nextLine();
 							System.out.println(" ");
+							
 							if(!entradaTeclado.matches("\\d+") && !entradaTeclado.equalsIgnoreCase("huerfanos") && !entradaTeclado.equalsIgnoreCase("tercios") && !entradaTeclado.equalsIgnoreCase("vecinos") && !entradaTeclado.equalsIgnoreCase("rojo") && !entradaTeclado.equalsIgnoreCase("negro") && !entradaTeclado.equalsIgnoreCase("primera mitad") && !entradaTeclado.equalsIgnoreCase("segunda mitad") && !entradaTeclado.equalsIgnoreCase("primera docena") && !entradaTeclado.equalsIgnoreCase("segunda docena") && !entradaTeclado.equalsIgnoreCase("tercera docena") && !entradaTeclado.equalsIgnoreCase("par") && !entradaTeclado.equalsIgnoreCase("impar")) {
 								System.out.println("Apuesta incorrecta, introducelo de nuevo");
 								System.out.println(" ");
@@ -122,12 +124,21 @@ public class Ruleta {
 				this.listaP.annadirNumeroPremiado(num);
 				this.listaP.imprimirTiradas();//tiradas anteriores
 				this.listaP.imprimirCalientesYFrios();//calientes y frios (se imprimira a partir de 5 numeros)
+				double premio = this.listaA.getPremio(num);
+				if(premio > 0) {
+					System.out.println("Has ganado" + premio + "euros");
+					System.out.println(" ");
+				}
+				else {
+					System.out.println("No has ganado");
+				}
 				
 				this.actualizarSaldoRuleta(num);
 				
 				boolean aux = false;
 				while(!aux) {
 					System.out.print("Si quieres retirar dinero escribe 1, si no introduce un 0 --> ");
+					System.out.println(" ");
 					entradaTeclado = entradaEscaner.nextLine();
 					if(entradaTeclado.equalsIgnoreCase("1")) {
 						aux = true;
@@ -136,6 +147,7 @@ public class Ruleta {
 					}
 					else if(!entradaTeclado.equalsIgnoreCase("0")) {
 						System.out.println("Comando incorrecto, introducelo correctamente");
+						System.out.println(" ");
 					}
 					else {
 						aux = true;
@@ -147,6 +159,7 @@ public class Ruleta {
 	
 	public void apostarDinero(String pTipoApuesta, String pApuesta, double pCant) {
 		this.listaA.anadirApuesta(pTipoApuesta, pApuesta, pCant);
+		System.out.println("Has apostado "+ pCant +" a "+ pApuesta + "\n");
 		
 	}
 	
@@ -156,9 +169,11 @@ public class Ruleta {
 		double dinero = this.jugador.getBeneficio();
 		if (dinero > 0 ) {
 			System.out.println(String.format("Tu beneficio total de las partidas es %4f", dinero));
+			System.out.println(" ");
 		}
 		else {
 			System.out.println(String.format("Has perdido una cantidad total de %4f", -dinero));
+			System.out.println(" ");
 		}
 	}
 	
