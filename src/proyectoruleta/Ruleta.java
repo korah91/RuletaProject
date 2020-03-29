@@ -60,14 +60,14 @@ public class Ruleta {
 					salirdinero = true;
 				}
 			}
-				while (!apuestacorrecta) {  //Varias apuestas hasta que mete un 0 en cantidad 
-					System.out.println("Introduce una cantidad que deseas apostar");
+				while (!apuestacorrecta) {  //Varias apuestas hasta que mete un 0 en cantidad   
+					System.out.println("Introduce la cantidad que quieres apostar");
 					System.out.println("Si no quieres realizar mas apuestas introcude el numero 0 en la cantidad");
 					System.out.print("Introduce la cantidad de apuesta --> ");
 					entradaTeclado = entradaEscaner.nextLine();
 					double cant = Double.parseDouble(entradaTeclado);
-					this.saldo = this.saldo - cant;
 					if(cant > 0 && cant <= this.saldo) { //Apuesta correcta
+						this.saldo = this.saldo - cant;
 						boolean correcto = false;
 						while (!correcto) {
 							System.out.println("---Tipos de apuestas posibles---");
@@ -78,9 +78,10 @@ public class Ruleta {
 							System.out.println("Docena: primera docena, segunda docena, tercera docena");
 							System.out.print("Introduce la apuesta--> huerfanos, par, rojo, 4 , primera docena, segunda mitad... --> ");
 							entradaTeclado = entradaEscaner.nextLine();
-							
+							System.out.println(" ");
 							if(!entradaTeclado.matches("\\d+") && !entradaTeclado.equalsIgnoreCase("huerfanos") && !entradaTeclado.equalsIgnoreCase("tercios") && !entradaTeclado.equalsIgnoreCase("vecinos") && !entradaTeclado.equalsIgnoreCase("rojo") && !entradaTeclado.equalsIgnoreCase("negro") && !entradaTeclado.equalsIgnoreCase("primera mitad") && !entradaTeclado.equalsIgnoreCase("segunda mitad") && !entradaTeclado.equalsIgnoreCase("primera docena") && !entradaTeclado.equalsIgnoreCase("segunda docena") && !entradaTeclado.equalsIgnoreCase("tercera docena") && !entradaTeclado.equalsIgnoreCase("par") && !entradaTeclado.equalsIgnoreCase("impar")) {
 								System.out.println("Apuesta incorrecta, introducelo de nuevo");
+								System.out.println(" ");
 							}
 							else {
 								correcto = true;
@@ -110,6 +111,7 @@ public class Ruleta {
 						
 					else if(cant > this.saldo) {
 						System.out.println("No tienes suficiente saldo");
+						System.out.println(" ");
 					}
 					else if(cant == 0) {
 						apuestacorrecta = true;
