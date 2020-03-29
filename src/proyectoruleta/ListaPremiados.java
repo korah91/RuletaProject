@@ -104,7 +104,7 @@ public class ListaPremiados {
 		
 		
 		int cuantosNumerosEnLista = listaTemp.size();
-		if (cuantosNumerosEnLista > 6) {
+		if (cuantosNumerosEnLista > 3) {
 
 			System.out.println("Los numeros calientes son : " );
 			System.out.println(" ");
@@ -126,7 +126,7 @@ public class ListaPremiados {
 				
 			}
 			
-			listaCalientes.clear();
+			
 			System.out.println("Los numeros frios son : ");
 			System.out.println(" ");
 		
