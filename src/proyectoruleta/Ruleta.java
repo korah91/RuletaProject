@@ -73,7 +73,7 @@ public class Ruleta {
 					entradaTeclado = entradaEscaner.nextLine();
 					System.out.println(" ");
 					double cant = Double.parseDouble(entradaTeclado);
-					if(cant > 0 && cant <= this.saldo) { //Apuesta correcta, no se tiene en cuenta que no meta una cantidad
+					if(cant > 0 && cant <= this.saldo) { //Apuesta correcta, no se tiene en cuenta que no meta una cantidad o la meta negativa
 						this.saldo = this.saldo - cant;
 						boolean correcto = false;
 						while (!correcto) {
@@ -123,6 +123,10 @@ public class Ruleta {
 					}
 					else if(cant == 0) {
 						apuestacorrecta = true;
+					}
+					else {
+						System.out.println("Apuesta incorrecta, introduce una apuesta mayor o igual que cero");
+						System.out.println(" ");
 					}
 				}
 				Numero num = this.listaN.lanzarBola();
