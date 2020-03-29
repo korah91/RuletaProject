@@ -47,9 +47,9 @@ public class Ruleta {
 				double dinero = Double.parseDouble(entradaTeclado);
 				if(dinero > 0) {
 					operacion = this.jugador.anadirSaldoRuleta(dinero);
-					if(operacion = false) {
+					if(operacion == false) {
 						System.out.println("No tienes suficiente saldo en tu monedero");
-						System.out.println("No has ganado");
+						System.out.println(" ");
 					}
 					else {
 						salirdinero = true;
@@ -125,7 +125,6 @@ public class Ruleta {
 					}
 				}
 				Numero num = this.listaN.lanzarBola();
-				this.listaP = ListaPremiados.getListaPremiados();
 				this.listaP.annadirNumeroPremiado(num);
 				this.listaP.imprimirTiradas();//tiradas anteriores
 				this.listaP.imprimirCalientesYFrios();//calientes y frios (se imprimira a partir de 5 numeros)
@@ -145,7 +144,7 @@ public class Ruleta {
 					System.out.print("Si quieres retirar dinero escribe 1, si no introduce un 0 --> ");
 					System.out.println(" ");
 					entradaTeclado = entradaEscaner.nextLine();
-					if(entradaTeclado.equalsIgnoreCase("1")) {
+					if(entradaTeclado.equalsIgnoreCase("1")) { //Es como que no quiere seguir jugando
 						aux = true;
 						partida = true;
 						listaA.reset();
@@ -172,7 +171,7 @@ public class Ruleta {
 		this.jugador.actualizarSaldo(this.saldo);
 		this.saldo = 0.0;
 		double dinero = this.jugador.getBeneficio();
-		if (dinero > 0 ) {
+		if (dinero >= 0 ) {
 			System.out.println(String.format("Tu beneficio total de las partidas es %4f", dinero));
 			System.out.println(" ");
 		}
