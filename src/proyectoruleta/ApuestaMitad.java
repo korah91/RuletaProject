@@ -12,7 +12,7 @@ public class ApuestaMitad extends Apuesta {
 	public double getPremio(Numero pNumero) {
 		double premio = 0;
 		
-		if(pNumero.getDocena().equalsIgnoreCase(this.mitad))
+		if(pNumero.getMitad().equalsIgnoreCase(this.mitad))
 		{
 			premio = this.cantidad*multiplicador;
 		}
