@@ -92,7 +92,7 @@ public class ListaPremiados {
 				num.setVecesAparecido(iNumeroVeces);
 				listaTemp.add(num.getNumero());
 				
-				if(iNumeroVeces >= 2) {
+				if(iNumeroVeces >= 3) {
 					this.listaCalientes.add(num);
 				}
 				else  {
@@ -125,7 +125,7 @@ public class ListaPremiados {
 				System.out.println(" ");
 				
 			}
-			
+			listaCalientes.clear();
 			
 			System.out.println("Los numeros frios son : ");
 			System.out.println(" ");
@@ -145,7 +145,9 @@ public class ListaPremiados {
 			}
 			listaFrios.clear();
 		}
+
 	}
+	
 	
 	
 	public int cuantosNumeros() {
