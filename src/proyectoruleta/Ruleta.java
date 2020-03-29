@@ -1,6 +1,7 @@
 package proyectoruleta;
 
 import java.util.*;
+import java.io.File;
 
 public class Ruleta {
 	private static Ruleta miRuleta = null;
@@ -40,6 +41,7 @@ public class Ruleta {
 			apuestacorrecta = false;
 			this.crearNumeros();
 			while (!salirdinero) {
+				System.out.println("Tu saldo del monedero actual es" + " " + this.jugador.getSaldoAtual());
 				System.out.println(" ");
 				System.out.print("Introduce saldo a la ruleta!, si no quieres introducir un nuevo saldo introduce un 0 --> ");
 				System.out.println(" ");

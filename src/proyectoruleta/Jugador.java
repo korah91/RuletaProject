@@ -38,5 +38,8 @@ public class Jugador {
 		}
 		return resp;
 	}
+	public double getSaldoAtual() {
+		return this.saldoActual;
+	}
 	
 }
