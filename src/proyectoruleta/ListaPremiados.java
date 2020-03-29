@@ -116,13 +116,16 @@ public class ListaPremiados {
 			
 				numCaliente = itrCalientes.next();
 			
-				System.out.println("Numero : " + numCaliente.getNumero());
-				System.out.println("Color : " + numCaliente.getColor());
-				System.out.println("Par/Impar : " + numCaliente.getPar());
-				System.out.println("Docena : " + numCaliente.getDocena());
-				System.out.println("Mitad : " + numCaliente.getMitad());
-				System.out.println("Familia : " + numCaliente.getFamilia());
-				System.out.println(" ");
+				System.out.println("==========================");
+                System.out.println("|Numero   : " + numCaliente.getNumero());
+                System.out.println("|Color    : " + numCaliente.getColor());
+                System.out.println("|Par/Impar: " + numCaliente.getPar());
+                System.out.println("|Docena   : " + numCaliente.getDocena());
+                System.out.println("|Mitad    : " + numCaliente.getMitad());
+                System.out.println("|Familia  : " + numCaliente.getFamilia());
+                System.out.println("==========================");
+
+                System.out.println(" ");
 				
 			}
 			listaCalientes.clear();
@@ -134,13 +137,16 @@ public class ListaPremiados {
 			
 				numFrios = itrFrios.next();
 			
-				System.out.println("Numero : " + numFrios.getNumero());
-				System.out.println("Color : " + numFrios.getColor());
-				System.out.println("Par/Impar : " + numFrios.getPar());
-				System.out.println("Docena : " + numFrios.getDocena());
-				System.out.println("Mitad : " + numFrios.getMitad());
-				System.out.println("Familia : " + numFrios.getFamilia());
-				System.out.println(" ");
+				System.out.println("==========================");
+                System.out.println("|Numero   : " + numFrios.getNumero());
+                System.out.println("|Color    : " + numFrios.getColor());
+                System.out.println("|Par/Impar: " + numFrios.getPar());
+                System.out.println("|Docena   : " + numFrios.getDocena());
+                System.out.println("|Mitad    : " + numFrios.getMitad());
+                System.out.println("|Familia  : " + numFrios.getFamilia());
+                System.out.println("==========================");
+
+                System.out.println(" ");
 				
 			}
 			listaFrios.clear();
