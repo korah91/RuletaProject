@@ -113,7 +113,7 @@ public class ListaPremiadosTest {
 	}
 
 	@Test
-	public void testImprimirCalientesYFrios() {
+	public void testImprimirCalientes() {
 		
 		listaP.annadirNumeroPremiado(numeroRojoPar);
 		listaP.annadirNumeroPremiado(numeroNegroImpar);
@@ -126,7 +126,7 @@ public class ListaPremiadosTest {
 		listaP.annadirNumeroPremiado(numeroDocena3);
 		listaP.annadirNumeroPremiado(numeroDocena3);
 		
-		listaP.imprimirCalientesYFrios();
+		listaP.imprimirCalientes();
 	}
 
 }
