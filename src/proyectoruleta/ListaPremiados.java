@@ -53,13 +53,15 @@ public class ListaPremiados {
 		
 		while(itr.hasNext()) {
 			num = itr.next(); 
-			
-			System.out.println("Numero : " + num.getNumero());
-			System.out.println("Color : " + num.getColor());
-			System.out.println("Par/Impar : " + num.getPar());
-			System.out.println("Docena : " + num.getDocena());
-			System.out.println("Mitad : " + num.getMitad());
-			System.out.println("Familia : " + num.getFamilia());
+			System.out.println("==========================");
+			System.out.println("|Numero   : " + num.getNumero());
+			System.out.println("|Color    : " + num.getColor());
+			System.out.println("|Par/Impar: " + num.getPar());
+			System.out.println("|Docena   : " + num.getDocena());
+			System.out.println("|Mitad    : " + num.getMitad());
+			System.out.println("|Familia  : " + num.getFamilia());
+			System.out.println("==========================");
+
 			System.out.println(" ");
 			
 		}
