@@ -7,7 +7,6 @@ public class ListaPremiados {
 	
 	private ArrayList<Numero> lista; 
 	private ArrayList<Numero> listaCalientes;
-	private ArrayList<Numero> listaFrios; 
 	private static ListaPremiados miListaPremiados = null; 
 	
 	//Constructoras
@@ -15,7 +14,6 @@ public class ListaPremiados {
 	private ListaPremiados() {
 		this.lista = new ArrayList<Numero>();
 		this.listaCalientes = new ArrayList<Numero>();
-		this.listaFrios = new ArrayList<Numero>(); 
 	}
 	
 	//metodos adicionales
@@ -37,10 +35,6 @@ public class ListaPremiados {
 		return(listaCalientes.iterator());
 	}
 	
-	private Iterator<Numero> getIteradorListaFrios(){
-		return(listaFrios.iterator());
-	}
-	
 	public void annadirNumeroPremiado(Numero pNumero) {
 		lista.add(pNumero); 
 	}
@@ -54,12 +48,12 @@ public class ListaPremiados {
 		while(itr.hasNext()) {
 			num = itr.next(); 
 			
-			System.out.println("Numero : " + num.getNumero());
-			System.out.println("Color : " + num.getColor());
+			System.out.println("Numero    : " + num.getNumero());
+			System.out.println("Color     : " + num.getColor());
 			System.out.println("Par/Impar : " + num.getPar());
-			System.out.println("Docena : " + num.getDocena());
-			System.out.println("Mitad : " + num.getMitad());
-			System.out.println("Familia : " + num.getFamilia());
+			System.out.println("Docena    : " + num.getDocena());
+			System.out.println("Mitad     : " + num.getMitad());
+			System.out.println("Familia   : " + num.getFamilia());
 			System.out.println(" ");
 			
 		}
@@ -67,13 +61,11 @@ public class ListaPremiados {
 	}
 
 	
-	public void  imprimirCalientesYFrios() {
+	public void  imprimirCalientes() {
 		ArrayList<Integer> listaTemp = new ArrayList<Integer>();
 		Iterator<Numero> itrCalientes = null;
-		Iterator<Numero> itrFrios = null;
 		Iterator<Numero> itr = this.getIteradorLista();
 		Numero numCaliente = null; 
-		Numero numFrios = null;
 		Numero primero = null;
 	
 		while(itr.hasNext()) {
@@ -92,69 +84,38 @@ public class ListaPremiados {
 				num.setVecesAparecido(iNumeroVeces);
 				listaTemp.add(num.getNumero());
 				
-				if(iNumeroVeces >= 3) {
+				if(iNumeroVeces >= 2) {
 					this.listaCalientes.add(num);
-				}
-				else  {
-					this.listaFrios.add(num);
 				}
 			}
 			
 		}
 		
-		
-		int cuantosNumerosEnLista = listaTemp.size();
-		if (cuantosNumerosEnLista > 3) {
-
 			System.out.println("Los numeros calientes son : " );
 			System.out.println(" ");
 		
 			itrCalientes = this.getIteradorListaCalientes();
-			itrFrios = this.getIteradorListaFrios();
 		
 			while (itrCalientes.hasNext()) {
 			
 				numCaliente = itrCalientes.next();
 			
 				System.out.println("==========================");
-                System.out.println("|Numero   : " + numCaliente.getNumero());
-                System.out.println("|Color    : " + numCaliente.getColor());
-                System.out.println("|Par/Impar: " + numCaliente.getPar());
-                System.out.println("|Docena   : " + numCaliente.getDocena());
-                System.out.println("|Mitad    : " + numCaliente.getMitad());
-                System.out.println("|Familia  : " + numCaliente.getFamilia());
+                System.out.println("|Numero      : " + numCaliente.getNumero());
+                System.out.println("|Color       : " + numCaliente.getColor());
+                System.out.println("|Par/Impar   : " + numCaliente.getPar());
+                System.out.println("|Docena      : " + numCaliente.getDocena());
+                System.out.println("|Mitad       : " + numCaliente.getMitad());
+                System.out.println("|Familia     : " + numCaliente.getFamilia());
+                System.out.println("|Apariciones : " + numCaliente.getVecesAparecido());
                 System.out.println("==========================");
 
                 System.out.println(" ");
 				
 			}
-			listaCalientes.clear();
 			
-			System.out.println("Los numeros frios son : ");
-			System.out.println(" ");
-		
-			while (itrFrios.hasNext()) {
-			
-				numFrios = itrFrios.next();
-			
-				System.out.println("==========================");
-                System.out.println("|Numero   : " + numFrios.getNumero());
-                System.out.println("|Color    : " + numFrios.getColor());
-                System.out.println("|Par/Impar: " + numFrios.getPar());
-                System.out.println("|Docena   : " + numFrios.getDocena());
-                System.out.println("|Mitad    : " + numFrios.getMitad());
-                System.out.println("|Familia  : " + numFrios.getFamilia());
-                System.out.println("==========================");
-
-                System.out.println(" ");
-				
-			}
-			listaFrios.clear();
+			this.listaCalientes.clear();
 		}
-
-	}
-	
-	
 	
 	public int cuantosNumeros() {
 		
