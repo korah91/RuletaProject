@@ -41,7 +41,7 @@ public class Ruleta {
 			apuestacorrecta = false;
 			this.crearNumeros();
 			while (!salirdinero) {
-				System.out.println("Tu saldo del monedero actual es" + " " + this.jugador.getSaldoAtual());
+				System.out.println("Tu saldo del monedero actual es" + " " + this.jugador.getSaldoActual());
 				System.out.println(" ");
 				System.out.print("Introduce saldo a la ruleta!, si no quieres introducir un nuevo saldo introduce un 0 --> ");
 				System.out.println(" ");
@@ -139,9 +139,11 @@ public class Ruleta {
 				if(premio > 0) {
 					System.out.println("Has ganado"+ " " + premio + " " + "euros");
 					System.out.println(" ");
+					premio = 0;
 				}
 				else {
 					System.out.println("No has ganado");
+					premio = 0;
 				}
 				
 				this.actualizarSaldoRuleta(num);

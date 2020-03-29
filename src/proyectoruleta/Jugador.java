@@ -38,7 +38,7 @@ public class Jugador {
 		}
 		return resp;
 	}
-	public double getSaldoAtual() {
+	public double getSaldoActual() {
 		return this.saldoActual;
 	}
 	
