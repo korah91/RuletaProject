@@ -92,7 +92,7 @@ public class ListaPremiados {
 				num.setVecesAparecido(iNumeroVeces);
 				listaTemp.add(num.getNumero());
 				
-				if(iNumeroVeces >= 3) {
+				if(iNumeroVeces >= 2) {
 					this.listaCalientes.add(num);
 				}
 				else  {
@@ -103,41 +103,47 @@ public class ListaPremiados {
 		}
 		
 		
+		int cuantosNumerosEnLista = listaTemp.size();
+		if (cuantosNumerosEnLista > 6) {
 
-		
-		System.out.println("Los numeros calientes son : " );
-		System.out.println(" ");
-		
-		itrCalientes = this.getIteradorListaCalientes();
-		itrFrios = this.getIteradorListaFrios();
-		
-		while (itrCalientes.hasNext()) {
-			
-			numCaliente = itrCalientes.next();
-			
-			System.out.println("Numero : " + numCaliente.getNumero());
-			System.out.println("Color : " + numCaliente.getColor());
-			System.out.println("Par/Impar : " + numCaliente.getPar());
-			System.out.println("Docena : " + numCaliente.getDocena());
-			System.out.println("Mitad : " + numCaliente.getMitad());
-			System.out.println("Familia : " + numCaliente.getFamilia());
+			System.out.println("Los numeros calientes son : " );
 			System.out.println(" ");
-		}
-		 
-		System.out.println("Los numeros frios son : ");
-		System.out.println(" ");
 		
-		while (itrFrios.hasNext()) {
+			itrCalientes = this.getIteradorListaCalientes();
+			itrFrios = this.getIteradorListaFrios();
+		
+			while (itrCalientes.hasNext()) {
 			
-			numFrios = itrFrios.next();
+				numCaliente = itrCalientes.next();
 			
-			System.out.println("Numero : " + numFrios.getNumero());
-			System.out.println("Color : " + numFrios.getColor());
-			System.out.println("Par/Impar : " + numFrios.getPar());
-			System.out.println("Docena : " + numFrios.getDocena());
-			System.out.println("Mitad : " + numFrios.getMitad());
-			System.out.println("Familia : " + numFrios.getFamilia());
+				System.out.println("Numero : " + numCaliente.getNumero());
+				System.out.println("Color : " + numCaliente.getColor());
+				System.out.println("Par/Impar : " + numCaliente.getPar());
+				System.out.println("Docena : " + numCaliente.getDocena());
+				System.out.println("Mitad : " + numCaliente.getMitad());
+				System.out.println("Familia : " + numCaliente.getFamilia());
+				System.out.println(" ");
+				
+			}
+			
+			listaCalientes.clear();
+			System.out.println("Los numeros frios son : ");
 			System.out.println(" ");
+		
+			while (itrFrios.hasNext()) {
+			
+				numFrios = itrFrios.next();
+			
+				System.out.println("Numero : " + numFrios.getNumero());
+				System.out.println("Color : " + numFrios.getColor());
+				System.out.println("Par/Impar : " + numFrios.getPar());
+				System.out.println("Docena : " + numFrios.getDocena());
+				System.out.println("Mitad : " + numFrios.getMitad());
+				System.out.println("Familia : " + numFrios.getFamilia());
+				System.out.println(" ");
+				
+			}
+			listaFrios.clear();
 		}
 	}
 	
