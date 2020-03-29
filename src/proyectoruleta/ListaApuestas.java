@@ -15,25 +15,26 @@ public class ListaApuestas {
         this.lista.clear();
     }
     public void anadirApuesta(String pTipo, String pApuesta, double pCantidad){
-        if(pTipo.equalsIgnoreCase("familia")) {
+        
+    	if(pTipo.equalsIgnoreCase("familia")) {
             this.lista.add(new ApuestaFamilia(pCantidad, pApuesta));
         }
         else if(pTipo.equalsIgnoreCase("color")){
             this.lista.add(new ApuestaColor(pCantidad, pApuesta));
         } 
-	else if(pTipo.equalsIgnoreCase("docena")) {
-	    this.lista.add(new ApuestaDocena(pCantidad, pApuesta));
-	}
-	else if(pTipo.equalsIgnoreCase("par")){
-	    this.lista.add(new ApuestaPar(pCantidad, pApuesta));
-	}
-	else if(pTipo.equalsIgnoreCase("mitad")) {
-	    this.lista.add(new ApuestaMitad(pCantidad, pApuesta));
-	}
-	else if(pTipo.equalsIgnoreCase("numero")) {
-		int num = Integer.parseInt(pApuesta);
-	    this.lista.add(new ApuestaNumero(pCantidad, num));
-	}
+		else if(pTipo.equalsIgnoreCase("docena")) {
+		    this.lista.add(new ApuestaDocena(pCantidad, pApuesta));
+		}
+		else if(pTipo.equalsIgnoreCase("par")){
+		    this.lista.add(new ApuestaPar(pCantidad, pApuesta));
+		}
+		else if(pTipo.equalsIgnoreCase("mitad")) {
+		    this.lista.add(new ApuestaMitad(pCantidad, pApuesta));
+		}
+		else if(pTipo.equalsIgnoreCase("numero")) {
+			int num = Integer.parseInt(pApuesta);
+		    this.lista.add(new ApuestaNumero(pCantidad, num));
+		}
     }
     
     public double getPremio(Numero pNum) {

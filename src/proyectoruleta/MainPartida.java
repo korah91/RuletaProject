@@ -12,7 +12,10 @@ public class MainPartida
         }
 
         public void jugarPartida() {
-                Ruleta ruleta = Ruleta.getRuleta();
+                System.out.println("|======================================|");
+        		System.out.println("|====== ¡Bienvenido a la Ruleta! ======|");
+        		System.out.println("|======================================|\n");
+        		Ruleta ruleta = Ruleta.getRuleta();
                 ruleta.jugarPartida();
         }
 

@@ -91,31 +91,31 @@ public class ListaPremiados {
 			
 		}
 		
-			System.out.println("Los numeros calientes son : " );
-			System.out.println(" ");
+		System.out.println("Los numeros calientes son : " );
+		System.out.println(" ");
+	
+		itrCalientes = this.getIteradorListaCalientes();
+	
+		while (itrCalientes.hasNext()) {
 		
-			itrCalientes = this.getIteradorListaCalientes();
+			numCaliente = itrCalientes.next();
 		
-			while (itrCalientes.hasNext()) {
-			
-				numCaliente = itrCalientes.next();
-			
-				System.out.println("==========================");
-                System.out.println("|Numero      : " + numCaliente.getNumero());
-                System.out.println("|Color       : " + numCaliente.getColor());
-                System.out.println("|Par/Impar   : " + numCaliente.getPar());
-                System.out.println("|Docena      : " + numCaliente.getDocena());
-                System.out.println("|Mitad       : " + numCaliente.getMitad());
-                System.out.println("|Familia     : " + numCaliente.getFamilia());
-                System.out.println("|Apariciones : " + numCaliente.getVecesAparecido());
-                System.out.println("==========================");
+			System.out.println("==========================");
+            System.out.println("|Numero      : " + numCaliente.getNumero());
+            System.out.println("|Color       : " + numCaliente.getColor());
+            System.out.println("|Par/Impar   : " + numCaliente.getPar());
+            System.out.println("|Docena      : " + numCaliente.getDocena());
+            System.out.println("|Mitad       : " + numCaliente.getMitad());
+            System.out.println("|Familia     : " + numCaliente.getFamilia());
+            System.out.println("|Apariciones : " + numCaliente.getVecesAparecido());
+            System.out.println("==========================");
 
-                System.out.println(" ");
-				
-			}
+            System.out.println(" ");
 			
-			this.listaCalientes.clear();
 		}
+		
+		this.listaCalientes.clear();
+	}
 	
 	public int cuantosNumeros() {
 		
