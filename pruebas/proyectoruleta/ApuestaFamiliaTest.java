@@ -37,7 +37,7 @@ public class ApuestaFamiliaTest {
 
 		lista.anadirApuesta("Familia", "huerfanos", 10); 
 
-		assertEquals(lista.getPremio(huerfano), 12.8, 0.1);	  //Apuesta a huerfanos y gana
+		assertEquals(lista.getPremio(huerfano), 45, 0.1);	  //Apuesta a huerfanos y gana
 		assertEquals(lista.getPremio(vecino), 0, 0.1);  	  //Apuesta a vecinos y no gana
 		assertEquals(lista.getPremio(tercio), 0, 0.1); 	  	  //Apuesta a tercios y no gana
 		
@@ -45,15 +45,15 @@ public class ApuestaFamiliaTest {
 		
 		lista.anadirApuesta("Familia", "vecinos", 10); 
 		assertEquals(lista.getPremio(huerfano), 0, 0.1);	  //Apuesta a huerfanos y no gana
-		assertEquals(lista.getPremio(vecino), 11.19, 1);  	  //Apuesta a vecinos y gana
+		assertEquals(lista.getPremio(vecino), 21.17, 1);  	  //Apuesta a vecinos y gana
 		assertEquals(lista.getPremio(tercio), 0, 0.1); 	  	  //Apuesta a tercios y no gana
 		
 		lista.resetear();
 		
 		lista.anadirApuesta("Familia", "tercios", 10); 
-		assertEquals(lista.getPremio(huerfano), 0, 1);	  //Apuesta a huerfanos y no gana
+		assertEquals(lista.getPremio(huerfano), 0, 1);		  //Apuesta a huerfanos y no gana
 		assertEquals(lista.getPremio(vecino), 0, 0.1);  	  //Apuesta a vecinos y no gana
-		assertEquals(lista.getPremio(tercio), 12.4, 1); 	  //Apuesta a tercios y gana
+		assertEquals(lista.getPremio(tercio), 30, 1); 	  	  //Apuesta a tercios y gana
 	}
 
 	@Test
