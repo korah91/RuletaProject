@@ -46,6 +46,8 @@ public class Ruleta {
 			while (!salirdinero) {
 				System.out.println("Tu saldo del monedero actual es" + " " + this.jugador.getSaldoActual());
 				System.out.println(" ");
+				System.out.println("El saldo actual de la ruleta es" + " " + this.saldo);
+				System.out.println(" ");
 				System.out.print("Introduce saldo a la ruleta!, si no quieres introducir un nuevo saldo introduce un 0 --> ");
 				
 				entradaTeclado = entradaEscaner.nextLine();
@@ -89,6 +91,7 @@ public class Ruleta {
 						System.out.println("Mitad   : primera mitad, segunda mitad");
 						System.out.println("Par     : par, impar");
 						System.out.println("Docena  : primera docena, segunda docena, tercera docena");
+						System.out.println("Nuemero : 0, 1, 2, 3 ... 36");
 						System.out.println("");
 						System.out.print("Introduce la apuesta--> huerfanos, par, rojo, 4 , primera docena, segunda mitad... --> ");
 						entradaTeclado = entradaEscaner.nextLine();
@@ -175,6 +178,7 @@ public class Ruleta {
 			}
 		}
 		Ruleta.miRuleta.retirarDinero();
+		System.out.println("Tu dinero actual es" + " " + this.jugador.getSaldoActual());
 	}
 	
 	public void apostarDinero(String pTipoApuesta, String pApuesta, double pCant) {
