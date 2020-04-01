@@ -101,6 +101,13 @@ public class Ruleta {
 							System.out.println("Apuesta incorrecta, introducelo de nuevo");
 							System.out.println(" ");
 						}
+						else if(isNumeric(entradaTeclado) == true) {
+							int entr = Integer.parseInt(entradaTeclado);
+							if(entr < 0 || entr > 36) {
+								System.out.println("Apuesta incorrecta, introducelo de nuevo");
+								System.out.println(" ");
+							}
+						}
 						else {
 							correcto = true;
 						}
@@ -204,6 +211,20 @@ public class Ruleta {
 	public void anadirSaldoRuleta(double pSaldo) {
 		this.saldo = this.saldo + pSaldo;
 	}
+	
+	public static boolean isNumeric(String teclado) {
+
+        boolean resultado;
+
+        try {
+            Integer.parseInt(teclado);
+            resultado = true;
+        } catch (NumberFormatException excepcion) {
+            resultado = false;
+        }
+
+        return resultado;
+    }
 	
 	public void actualizarSaldoRuleta(Numero pNum) {
 		double premio = this.listaA.getPremio(pNum);
