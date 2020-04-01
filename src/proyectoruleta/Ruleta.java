@@ -91,7 +91,7 @@ public class Ruleta {
 						System.out.println("Mitad   : primera mitad, segunda mitad");
 						System.out.println("Par     : par, impar");
 						System.out.println("Docena  : primera docena, segunda docena, tercera docena");
-						System.out.println("Nuemero : 0, 1, 2, 3 ... 36");
+						System.out.println("Numero : 0, 1, 2, 3 ... 36");
 						System.out.println("");
 						System.out.print("Introduce la apuesta--> huerfanos, par, rojo, 4 , primera docena, segunda mitad... --> ");
 						entradaTeclado = entradaEscaner.nextLine();
