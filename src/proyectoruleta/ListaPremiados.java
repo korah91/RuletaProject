@@ -82,7 +82,7 @@ public class ListaPremiados {
 
 				if(iNumeroVeces >= 2) {
 					
-						System.out.println("==========================");
+				System.out.println("==========================");
 		                System.out.println("|Numero      : " + num.getNumero());
 		                System.out.println("|Color       : " + num.getColor());
 		                System.out.println("|Par/Impar   : " + num.getPar());
