@@ -15,7 +15,7 @@ public class ApuestaColor extends Apuesta {
 		
 		if(pNumero.getColor().equalsIgnoreCase(this.color))
 		{
-			premio = this.cantidad*multiplicador;
+			premio = super.getCantidad()*multiplicador;
 		}
 		
 		return premio;
