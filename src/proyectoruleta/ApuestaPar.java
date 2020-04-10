@@ -14,7 +14,7 @@ public class ApuestaPar extends Apuesta {
 			
 		if(pNumero.getPar().equalsIgnoreCase(par))
 		{
-			premio = this.cantidad*multiplicador;			
+			premio = super.getCantidad()*multiplicador;			
 		}
 
 		
