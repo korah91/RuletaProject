@@ -16,7 +16,7 @@ public class ApuestaDocena extends Apuesta {
 		
 		if(pNumero.getDocena().equalsIgnoreCase(this.docena))
 		{
-			premio = this.cantidad*multiplicador;
+			premio = super.getCantidad()*multiplicador;
 		}
 		
 		return premio;
