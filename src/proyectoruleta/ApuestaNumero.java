@@ -14,7 +14,7 @@ public class ApuestaNumero extends Apuesta {
 		
 		if(numero == pNumero.getNumero()) //Si el numero es el premiado
 		{
-			premio = this.cantidad*multiplicador;
+			premio = super.getCantidad()*multiplicador;
 		}
 		
 		return premio;
