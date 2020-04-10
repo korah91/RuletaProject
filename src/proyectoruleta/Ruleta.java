@@ -6,16 +6,12 @@ import java.io.File;
 public class Ruleta {
 	private static Ruleta miRuleta = null;
 	private ListaNumeros listaN;
-	private Jugador jugador;
 	private ListaApuestas listaA;
-	private ListaPremiados listaP = null;
 	private double saldo = 0.0;
 	
 	private Ruleta() {
 		this.listaN = new ListaNumeros();
-		this.jugador = Jugador.getMiJugador();
 		this.listaA = new ListaApuestas();
-		this.listaP = ListaPremiados.getListaPremiados();
 		
 	}
 	
@@ -32,6 +28,8 @@ public class Ruleta {
 		boolean salirdinero = false;
 		boolean operacion = false;
 		boolean apuestacorrecta = false;
+		Jugador jugador = Jugador.getMiJugador();
+		ListaPremiados listaP = ListaPremiados.getListaPremiados();
 		
 		String entradaTeclado;
 		String apuesta;
@@ -44,7 +42,7 @@ public class Ruleta {
 			this.crearNumeros();
 			
 			while (!salirdinero) {
-				System.out.println("Tu saldo del monedero actual es" + " " + this.jugador.getSaldoActual());
+				System.out.println("Tu saldo del monedero actual es" + " " + jugador.getSaldoActual());
 				System.out.println(" ");
 				System.out.println("El saldo actual de la ruleta es" + " " + this.saldo);
 				System.out.println(" ");
@@ -54,7 +52,7 @@ public class Ruleta {
 				double dinero = Double.parseDouble(entradaTeclado);
 				
 				if(dinero > 0) {
-					operacion = this.jugador.anadirSaldoRuleta(dinero);
+					operacion = jugador.anadirSaldoRuleta(dinero);
 					if(operacion == false) {
 						System.out.println("No tienes suficiente saldo en tu monedero");
 						System.out.println(" ");
@@ -91,7 +89,7 @@ public class Ruleta {
 						System.out.println("Mitad   : primera mitad, segunda mitad");
 						System.out.println("Par     : par, impar");
 						System.out.println("Docena  : primera docena, segunda docena, tercera docena");
-						System.out.println("Numero : 0, 1, 2, 3 ... 36");
+						System.out.println("Numero  : 0, 1, 2, 3 ... 36");
 						System.out.println("");
 						System.out.print("Introduce la apuesta--> huerfanos, par, rojo, 4 , primera docena, segunda mitad... --> ");
 						entradaTeclado = entradaEscaner.nextLine();
@@ -107,9 +105,12 @@ public class Ruleta {
 								System.out.println("Apuesta incorrecta, introducelo de nuevo");
 								System.out.println(" ");
 							}
+							else {
+							correcto = true;
+							}
 						}
 						else {
-							correcto = true;
+						correcto = true;
 						}
 					}
 					if (entradaTeclado.equalsIgnoreCase("huerfanos") || entradaTeclado.equalsIgnoreCase("tercios") || entradaTeclado.equalsIgnoreCase("vecinos")) {
@@ -147,9 +148,9 @@ public class Ruleta {
 				}
 			}
 			Numero num = this.listaN.lanzarBola();
-			this.listaP.annadirNumeroPremiado(num);
-			this.listaP.imprimirTiradas();//tiradas anteriores
-			this.listaP.imprimirCalientes();//calientes y frios (se imprimira a partir de 5 numeros)
+			listaP.annadirNumeroPremiado(num);
+			listaP.imprimirTiradas();//tiradas anteriores
+			listaP.imprimirCalientes();//calientes y frios (se imprimira a partir de 5 numeros)
 			double ganancia = this.listaA.getPremio(num);
 			if(ganancia > 0) {
 				System.out.println("Has ganado"+ " " + ganancia + " " + "euros");
@@ -185,7 +186,7 @@ public class Ruleta {
 			}
 		}
 		Ruleta.miRuleta.retirarDinero();
-		System.out.println("Tu dinero actual es" + " " + this.jugador.getSaldoActual());
+		System.out.println("Tu dinero actual es" + " " + jugador.getSaldoActual());
 	}
 	
 	public void apostarDinero(String pTipoApuesta, String pApuesta, double pCant) {
@@ -195,9 +196,10 @@ public class Ruleta {
 	}
 	
 	public void retirarDinero() {
-		this.jugador.actualizarSaldo(this.saldo);
+		Jugador jugador = Jugador.getMiJugador();
+		jugador.actualizarSaldo(this.saldo);
 		this.saldo = 0.0;
-		double dinero = this.jugador.getBeneficio();
+		double dinero = jugador.getBeneficio();
 		if (dinero >= 0 ) {
 			System.out.println(String.format("Tu beneficio total de las partidas es %4f", dinero));
 			System.out.println(" ");
