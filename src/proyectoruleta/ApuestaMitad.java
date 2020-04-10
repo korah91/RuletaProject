@@ -14,7 +14,7 @@ public class ApuestaMitad extends Apuesta {
 		
 		if(pNumero.getMitad().equalsIgnoreCase(this.mitad))
 		{
-			premio = this.cantidad*multiplicador;
+			premio = super.getCantidad()*multiplicador;
 		}
 		
 		return premio;
