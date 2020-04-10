@@ -3,7 +3,13 @@ package proyectoruleta;
 public class ApuestaFamilia extends Apuesta {
 	
 	private String familia;
-	private double multiplicador = 36;
+	private double multiplicador;
+	
+	/*
+	 Vecino --> 19.0
+	 Huerfano --> 28.0
+	 Tercio --> 24.0
+	*/
 	
 	public ApuestaFamilia (double pCantidad,String pFamilia) {
 		super(pCantidad);
@@ -11,22 +17,22 @@ public class ApuestaFamilia extends Apuesta {
 		
 		if(pFamilia.equalsIgnoreCase("huerfanos")) 
 		{
-			this.cantidad = this.cantidad / 8;
+			this.multiplicador = 1.28;
 		}
 		if(pFamilia.equalsIgnoreCase("tercios"))
 		{
-			this.cantidad = this.cantidad / 12;
+			this.multiplicador = 1.24;
 		}
 		if(pFamilia.equalsIgnoreCase("vecinos"))
 		{
-			this.cantidad = this.cantidad / 17;
+			this.multiplicador = 1.19;
 		}
 	}
 	public double getPremio(Numero pNumero) { //Devuelve lo apostado MAS el premio
 		double premio = 0;
 		if(pNumero.getFamilia().equalsIgnoreCase(this.familia))	
 		{
-			premio = this.cantidad*multiplicador;
+			premio = super.getCantidad()*multiplicador;
 		}
 		
 		
