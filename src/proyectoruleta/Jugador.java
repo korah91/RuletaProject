@@ -2,7 +2,7 @@ package proyectoruleta;
 
 public class Jugador {
 
-	private double saldoInicial;
+	private static double saldoInicial;
 	private double saldoActual;
 	private static Jugador miJugador = null;
 	
