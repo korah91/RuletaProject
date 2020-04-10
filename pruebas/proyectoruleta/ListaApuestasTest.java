@@ -30,6 +30,8 @@ public class ListaApuestasTest {
 		assertEquals(lista.cantidad(), 1);
 		lista.anadirApuesta("Color", "Rojo", 50);
 		assertEquals(lista.cantidad(), 2);
+		lista.anadirApuesta("Numero", "0", 200);
+		assertEquals(lista.cantidad(),3);
 		lista.resetear();
 		assertEquals(lista.cantidad(), 0);
 	}
